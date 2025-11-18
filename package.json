@@ -1,0 +1,32 @@
+{
+  "name": "recetas-backend-node",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000r\u0000e\u0000c\u0000e\u0000t\u0000a\u0000s\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000n\u0000o\u0000d\u0000e\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Facucode/recetas-backend-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Facucode/recetas-backend-node/issues"
+  },
+  "homepage": "https://github.com/Facucode/recetas-backend-node#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-validator": "^7.3.0",
+    "mongoose": "^8.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
