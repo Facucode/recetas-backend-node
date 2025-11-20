@@ -10,10 +10,11 @@ router.post('/login',[
     validarCampos
 ],login );
 
-export default router;
 
 router.post('/signup',[
     check('email', 'El correo es obligatorio').isEmail(),
     check('password', 'La contraseña es obligatoria').not().isEmpty(),
     validarCampos
 ], signup );
+
+export default router;

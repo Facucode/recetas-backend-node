@@ -1,12 +1,21 @@
 import { Router } from "express";
 import { check } from "express-validator";    
 
-import getRecetas from "../controllers/recetas.js";
+import  validarCampos  from "../middlewares/validar-campos.js";
+import validarJWT from "../middlewares/validar-jwt.js";
+import {getRecetas, crearReceta} from "../controllers/recetas.js";
 
 const router = Router();
 
 
 router.get('/get', getRecetas);
 
+router.post('/add',[
+    validarJWT,
+    validarCampos,
+    check('nombre', 'El nombre de la receta es obligatorio').not().isEmpty(),
+    check('ingredientes', 'Los ingredientes son obligatorios').not().isEmpty(),
+    check('preparacion', 'La preparación es obligatoria').not().isEmpty(),
+], crearReceta );
 
 export default router;

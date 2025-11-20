@@ -31,15 +31,12 @@ const RecetaSchema = Schema({
         required: [true, 'La ruta de la imagen es obligatoria']
     },
     userEmail: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'Usuario',
         required: [true, 'El email del usuario es obligatorio']
     }
 
-}, { strictPopulate: false });
-
-RecetaSchema.method('toJSON', function() {
-    const { __v, ...receta } = this.toObject();
-    return receta;
 });
+
 
 export default model( 'Receta', RecetaSchema );
