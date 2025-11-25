@@ -13,6 +13,22 @@ const getRecetas = async(req, res = response) => {
     res.json(recetasLimpias);
 }
 
+const editarReceta = async(req, res = response ) => {
+    const { id } = req.params;
+    let { name, description, ingredients, imagePath } = req.body;
+
+    if(name) {
+        name = name.toUpperCase();
+    }
+
+    const receta = await Receta.findByIdAndUpdate( id, { name, description, ingredients, imagePath }, { new: true } );
+
+
+    res.status(200).json({receta, msg: "update recipe ok" });
+
+
+
+}
 
 const crearReceta = async(req, res = response ) => {
 
@@ -38,4 +54,7 @@ const crearReceta = async(req, res = response ) => {
 
 }
 
-export {getRecetas, crearReceta};
+export {
+    getRecetas, 
+    crearReceta, 
+    editarReceta};
