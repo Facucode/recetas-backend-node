@@ -3,7 +3,7 @@ import { check } from "express-validator";
 
 import  validarCampos  from "../middlewares/validar-campos.js";
 import validarJWT from "../middlewares/validar-jwt.js";
-import {getRecetas, crearReceta, editarReceta} from "../controllers/recetas.js";
+import {getRecetas, crearReceta, editarReceta, eliminarReceta} from "../controllers/recetas.js";
 
 const router = Router();
 
@@ -25,5 +25,10 @@ router.put('/edit/:id',[
     check('ingredientes', 'Los ingredientes son obligatorios').not().isEmpty(),
     check('preparacion', 'La preparación es obligatoria').not().isEmpty(),
 ], editarReceta );
+
+router.delete('/delete/:id',[
+    validarJWT
+], eliminarReceta );
+
 
 export default router;

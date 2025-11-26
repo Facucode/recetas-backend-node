@@ -15,12 +15,6 @@ const login = async(req, res = response) => {
             });
         }
 
-        if ( !usuario.estado ) {
-            return res.status(400).json({
-                msg: 'Usuario / Password no son correctos - estado: false'
-            });
-        }
-
 
         const validPassword = bcrypt.compareSync( password, usuario.password );
         if ( !validPassword ) {
