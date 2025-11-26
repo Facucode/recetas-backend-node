@@ -17,12 +17,9 @@ const editarReceta = async(req, res = response ) => {
     const { id } = req.params;
     let { name, description, ingredients, imagePath } = req.body;
 
-
     const receta = await Receta.findByIdAndUpdate( id, { name, description, ingredients, imagePath }, { new: true } );
 
     res.status(200).json({receta, msg: "update recipe ok" });
-
-
 
 }
 

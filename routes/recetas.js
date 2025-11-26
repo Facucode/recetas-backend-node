@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { check } from "express-validator";    
 
-import  validarCampos  from "../middlewares/validar-campos.js";
+import validarCampos  from "../middlewares/validar-campos.js";
 import validarJWT from "../middlewares/validar-jwt.js";
+import { existeRecetaPorId } from "../helpers/db-validator.js";
 import {getRecetas, crearReceta, editarReceta, eliminarReceta} from "../controllers/recetas.js";
 
 const router = Router();
-
 
 router.get('/get', getRecetas);
 
@@ -27,7 +27,9 @@ router.put('/edit/:id',[
 ], editarReceta );
 
 router.delete('/delete/:id',[
-    validarJWT
+    validarJWT,
+    check('id').custom( existeRecetaPorId ),
+    validarCampos
 ], eliminarReceta );
 
 
