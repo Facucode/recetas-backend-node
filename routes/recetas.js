@@ -15,7 +15,6 @@ router.post('/add',[
     validarCampos,
     check('nombre', 'El nombre de la receta es obligatorio').not().isEmpty(),
     check('ingredientes', 'Los ingredientes son obligatorios').not().isEmpty(),
-    check('preparacion', 'La preparación es obligatoria').not().isEmpty(),
 ], crearReceta );
 
 router.put('/edit/:id',[
@@ -23,13 +22,11 @@ router.put('/edit/:id',[
     validarCampos,
     check('nombre', 'El nombre de la receta es obligatorio').not().isEmpty(),
     check('ingredientes', 'Los ingredientes son obligatorios').not().isEmpty(),
-    check('preparacion', 'La preparación es obligatoria').not().isEmpty(),
 ], editarReceta );
 
 router.delete('/delete/:id',[
     validarJWT,
     check('id').custom( existeRecetaPorId ),
-    validarCampos
 ], eliminarReceta );
 
 

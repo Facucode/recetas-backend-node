@@ -45,7 +45,10 @@ const login = async(req, res = response) => {
 const signup = async(req, res = response) => {
     const { email, password } = req.body;
     try {
+        console.log(email);
+        
         const usuario = await Usuario.findOne({ email });
+        console.log(usuario);
         if ( usuario ) {
             return res.status(400).json({
                      msg: 'El correo ya está registrado'

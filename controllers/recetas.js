@@ -1,5 +1,6 @@
 import { response } from "express";
 import Receta from "../models/receta.js";
+import { body } from "express-validator";
 
 const getRecetas = async(req, res = response) => {
     const recetas = await Receta.find()
@@ -35,9 +36,12 @@ const crearReceta = async(req, res = response ) => {
         });
     }
 
+    console.log(req.usuario);
+    console.log(req.body);
 
+    const {_id , ...body} = req.body;
     const receta = new Receta({
-        ...req.body,
+        ...body,
         userEmail: req.usuario._id
     });
 
