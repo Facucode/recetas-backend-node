@@ -8,7 +8,9 @@ import {getRecetas, crearReceta, editarReceta, eliminarReceta} from "../controll
 
 const router = Router();
 
-router.get('/get', getRecetas);
+router.get('/get',
+    validarJWT
+, getRecetas);
 
 router.post('/add',[
     validarJWT,

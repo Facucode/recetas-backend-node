@@ -3,7 +3,7 @@ import Receta from "../models/receta.js";
 import { body } from "express-validator";
 
 const getRecetas = async(req, res = response) => {
-    const recetas = await Receta.find()
+    const recetas = await Receta.find({userEmail: req.usuario._id})
     .populate('userEmail', 'email -_id');
    
     const recetasLimpias = recetas.map(r => ({
