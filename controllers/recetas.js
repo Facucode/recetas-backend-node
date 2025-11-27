@@ -36,9 +36,6 @@ const crearReceta = async(req, res = response ) => {
         });
     }
 
-    console.log(req.usuario);
-    console.log(req.body);
-
     const {_id , ...body} = req.body;
     const receta = new Receta({
         ...body,
