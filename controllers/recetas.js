@@ -1,6 +1,5 @@
 import { response } from "express";
 import Receta from "../models/receta.js";
-import { body } from "express-validator";
 
 const getRecetas = async(req, res = response) => {
     const recetas = await Receta.find({userEmail: req.usuario._id})
@@ -16,7 +15,7 @@ const getRecetas = async(req, res = response) => {
 
 const editarReceta = async(req, res = response ) => {
     const { id } = req.params;
-    let { name, description, ingredients, imagePath } = req.body;
+    const { name, description, ingredients, imagePath } = req.body;
 
     const receta = await Receta.findByIdAndUpdate( id, { name, description, ingredients, imagePath }, { new: true } );
 
