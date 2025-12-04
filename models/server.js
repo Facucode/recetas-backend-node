@@ -31,7 +31,6 @@ class Server {
 
         this.app.use(express.json());
 
-        this.app.use(express.static('public'));
     }
     routes() {
         this.app.use(this.recetasPath, recetasRoutes);

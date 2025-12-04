@@ -8,6 +8,7 @@ import generarJWT from "../helpers/generar-jwt.js";
 const login = async(req, res = response) => {
     const { email, password } = req.body;
     try {
+        // Esto seria una diferente funcion
         const usuario = await Usuario.findOne({ email });
         if ( !usuario ) {
             return res.status(404).json({
@@ -54,6 +55,7 @@ const signup = async(req, res = response) => {
                      msg: 'El correo ya está registrado'
             });
         }
+        // eliminar else
         else {
         const usuario = new Usuario( req.body );
        
